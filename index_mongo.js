@@ -58,7 +58,6 @@ app.post('/api/status', async (req, res) => {
       {
         user_name: userName,
         date: { $gte: today },
-        time: time
       },
       {
         sort: { date: -1 },
@@ -73,6 +72,7 @@ app.post('/api/status', async (req, res) => {
         user_name: userName,
         status,
         date: new Date(),
+        time: time
       });
       return res.status(201).json({ message: 'Status updated successfully.' });
     }
