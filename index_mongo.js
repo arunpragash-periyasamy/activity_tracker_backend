@@ -35,6 +35,10 @@ async function connectToMongoDB() {
 }
 connectToMongoDB();
 
+app.get("/", async(req,res)=>{
+    res.send("Activity tracker")
+})
+
 // POST endpoint to handle the request
 app.post('/api/status', async (req, res) => {
   try {
