@@ -42,7 +42,7 @@ app.get("/", async(req,res)=>{
 // POST endpoint to handle the request
 app.post('/api/status', async (req, res) => {
   try {
-    const { userName, status } = req.body;
+    const { userName, status, time } = req.body;
     if (!userName || !status) {
       return res.status(400).json({ message: 'userName and status are required.' });
     }
@@ -58,6 +58,7 @@ app.post('/api/status', async (req, res) => {
       {
         user_name: userName,
         date: { $gte: today },
+        time: time
       },
       {
         sort: { date: -1 },

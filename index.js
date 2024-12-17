@@ -2,8 +2,6 @@
 const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
-
-// Initialize Express app
 const app = express();
 
 // Middleware to parse JSON requests
@@ -65,6 +63,7 @@ app.post('/api/check', async (req, res) => {
 
 // Start the server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
